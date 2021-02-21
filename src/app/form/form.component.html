@@ -1,0 +1,39 @@
+<form [formGroup]="cardForm" (ngSubmit) = "onSubmit()">
+    <div>
+        <label for="number"></label>Card Number:
+        <input type="number" name="cardNumber" formControlName="cardNumber">
+        <span 
+        *ngIf="!cardForm.get('cardNumber').valid && cardForm.get('cardNumber').touched">
+        there is an error in this field
+    </span>
+    </div>
+    <div>
+        <label for="cardHolder"></label>Card Holder:
+        <input type="string" name="cardHolder" formControlName="cardHolder">
+        <span *ngIf="!cardForm.get('cardHolder').valid && cardForm.get('cardHolder').touched">
+        there is an error in this field
+        </span>
+    </div>
+    <div>
+        <label for="date"></label>Expiration Date:
+        <input type="date" name="date" formControlName="date">
+        <span *ngIf="!cardForm.get('date').valid && cardForm.get('date').touched">
+        there is an error in this field
+        </span>
+    </div>
+    <div>
+        <label for="ccv"></label>Security Code:
+        <input type="number" name="ccv" formControlName="ccv" maxlength="3">
+        <span *ngIf="!cardForm.get('ccv').valid && cardForm.get('ccv').touched">
+         there is an error in this field
+        </span>
+    </div>
+    <div>
+        <label for="amount"></label>Amount:
+        <input type="number" name="amount" formControlName="amount">
+        <span *ngIf="!cardForm.get('date').valid && cardForm.get('date').touched">
+        there is an error in this field
+        </span>
+    </div>
+    <button type="submit" [disabled] = "!cardForm.valid">submit</button>
+</form>
