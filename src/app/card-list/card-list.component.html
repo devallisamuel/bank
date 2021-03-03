@@ -1,1 +1,10 @@
-<app-card-list-details></app-card-list-details>
+<div>
+    <ul *ngFor="let card of cards">
+        <li>{{ card.cardNumber }}</li>
+        <li>{{ card.cardHolder }}</li>
+        <li>{{ card.expirationDate }}</li>
+        <li>{{ card.securityCode }}</li>
+        <li>{{ card.amount }}</li>
+    </ul>
+</div>
+<!-- <app-card-list-details></app-card-list-details> -->

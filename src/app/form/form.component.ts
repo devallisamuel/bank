@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Details } from '../details';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+ forms: Details[];
 cardForm:FormGroup;
   constructor() { }
 
@@ -19,8 +20,9 @@ cardForm:FormGroup;
       'amount': new FormControl(null, [Validators.minLength(1), Validators.required]),
     });
   }
-onSubmit () {
-  console.log(this.cardForm);
+onSubmit ():void {
+  this.forms = this.cardForm.value;
+  console.log(this.forms);
 }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentService } from '../payment.service';
+import { Details } from '../details';
 
 @Component({
   selector: 'app-card-list',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-
-  constructor() { }
+cards:Details[] = [];
+errorMessage = '';
+  constructor(private paymentService: PaymentService) { }
 
   ngOnInit(): void {
+    this.paymentService.getDetails().subscribe
+    ({
+      next: details => this.cards = details,
+      error: err => this.errorMessage = err
+    });
   }
 
 }
